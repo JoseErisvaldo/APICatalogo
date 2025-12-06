@@ -1,0 +1,47 @@
+## Arquivos binários do build
+bin/
+obj/
+
+## Arquivos de usuário do Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Pastas de pacote NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+## Ferramentas de EF Core (migrations, designer)
+**/Migrations/
+*.efmodel.diagram
+
+## Logs e cache do Visual Studio
+*.log
+.vs/
+.vscode/
+
+## Arquivos de publicação
+*.publish.xml
+*.deploy.cmd
+*.deploy-readme.txt
+*.pubxml
+*.pubxml.user
+
+## Arquivos de configuração sensíveis
+appsettings.Development.json
+appsettings.Local.json
+.env
+
+## Arquivos temporários
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+
+## Mac / Linux
+.DS_Store
+Thumbs.db

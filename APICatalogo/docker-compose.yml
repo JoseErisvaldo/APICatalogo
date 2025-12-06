@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  mysql_dev:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: apiprodutos
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: appuser123
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    container_name: APIProduto
+    restart: always
+    ports:
+      - "8080:8080"
+
+  apicatalogo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: apicatalogo_dev
+    restart: always
+    depends_on:
+      - mysql_dev
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=mysql_dev;Port=3306;Database=apiprodutos;User=appuser;Password=appuser123;"
+    ports:
+      - "5000:5000"
+
+volumes:
+  mysql_data:
