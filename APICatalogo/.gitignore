@@ -14,10 +14,6 @@ obj/
 packages/
 .nuget/
 
-## Ferramentas de EF Core (migrations, designer)
-**/Migrations/
-*.efmodel.diagram
-
 ## Logs e cache do Visual Studio
 *.log
 .vs/
